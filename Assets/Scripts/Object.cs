@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class Object : MonoBehaviour
 {
+    //Encapsulation
     public float speed
     {
         get { return m_speed; }
@@ -15,6 +16,7 @@ public abstract class Object : MonoBehaviour
     private float m_elapsedTime;
     protected abstract void Move();
 
+    //Abstraction: Abstracting the Update of every Object in scene that must move
     private void Update()
     {
         if (MainManager.instance.isRunning)
