@@ -10,17 +10,20 @@ public abstract class Object : MonoBehaviour
         private set { }
     }
 
-    private float m_speed;
+    private float m_speed = 0.0f;
 
     private float m_elapsedTime;
     protected abstract void Move();
 
     private void Update()
     {
-        m_elapsedTime += Time.deltaTime;
+        if (MainManager.instance.isRunning)
+        {
+            m_elapsedTime += Time.deltaTime;
 
-        m_speed = Mathf.Sin(m_elapsedTime);
+            m_speed = Mathf.Sin(m_elapsedTime);
 
-        Move();
+            Move();
+        }
     }
 }
